@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodhi-Panya Engine: Recursive Graph Pointer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        h1 { color: #38bdf8; font-size: 1.5rem; text-align: center; }
+        .node-box {
+            background: #334155;
+            border-left: 5px solid #38bdf8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        button {
+            background: #0ea5e9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+        }
+        button:hover { background: #0284c7; }
+        pre {
+            background: #0f172a;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            color: #a7f3d0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>✨ Bodhi-Panya Engine (Graph Pointer Architecture) ✨</h1>
+        <p style="text-align: center; color: #94a3b8; font-size: 0.9rem;">
+            สถาปัตยกรรมจากกระท่อมปลายนา: Stateless, Mirror Pointer & Decentralized P2P
+        </p>
+
+        <div class="node-box">
+            <h3>Root Node: Bodhi_Panya_Engine</h3>
+            <p id="status-display">สถานะระบบ: พร้อมจำลองพฤติกรรมควอนตัม (Zero-State Persistence)</p>
+        </div>
+
+        <button onclick="runQuantumSimulation()">⚡ ประมวลผล Recursive Graph Mirror Pointer</button>
+
+        <div class="node-box">
+            <h3>Log การทำงาน (Console Output):</h3>
+            <pre id="console-log">กดปุ่มด้านบนเพื่อเริ่มจำลอง Event...</pre>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. นิยามโครงสร้างข้อมูลแบบ Graph Node & Pointer ---
+        class GraphNode {
+            constructor(name, data) {
+                this.name = name;
+                this.data = data;
+                this.pointers = []; // เก็บ Pointer เชื่อมไปยังโหนดอื่นๆ (คล้าย Mycorrhizal P2P)
+            }
+
+            // ฟังก์ชันเชื่อมโยง Pointer (Ref) ไปยังโหนดอื่น
+            connect(node) {
+                this.pointers.push(node);
+            }
+
+            // ฟังก์ชันจำลอง Recursive Graph Mirror Pointer (สะท้อน Event ทันที ไร้การกักเก็บ State)
+            reflectEvent(eventPayload, logCallback) {
+                logCallback(`[Event Triggered] โหนด '${this.name}' ได้รับข้อมูล: "${eventPayload}"`);
+                logCallback(`-> [State Action] ปล่อยวาง State ทันที ไม่เก็บขยะ (Stateless)`);
+
+                // วนลูปส่งต่อ Pointer แบบ Recursive ไปยังโหนดเครือข่ายเครือญาติ (P2P Network)
+                this.pointers.forEach(targetNode => {
+                    logCallback(`-> [Pointer Jump] ชี้กระจกเงาสู่โหนดเครือข่าย: ${targetNode.name}`);
+                    // ส่งต่อโดยไม่เก็บบันทึกสถานะค้างไว้
+                });
+            }
+        }
+
+        // --- 2. การประกอบร่างสถาปัตยกรรม (System Initialization) ---
+        // สร้าง Root และ Nodes ตามโครงสร้าง Knowledge Graph
+        const rootEngine = new GraphNode("Root[Bodhi_Panya_Engine]", "Core Controller");
+        const coreConceptNode = new GraphNode("Node[Core_Concept]", "ปฏิจจสมุปบาท / อิทัปปัจจยตา");
+        const architectureNode = new GraphNode("Node[Architecture]", "Recursive Graph Mirror Pointer");
+        const networkNode = new GraphNode("Node[Network]", "Mycorrhizal P2P (ไร้เซิร์ฟเวอร์กลาง)");
+        const useCaseNode = new GraphNode("Node[Use_Cases]", "IoT ไก่น้อยเป็ดน้อย / สแกนมะเร็ง");
+
+        // ผูกความสัมพันธ์ด้วย Pointer (Graph References)
+        rootEngine.connect(coreConceptNode);
+        rootEngine.connect(architectureNode);
+        architectureNode.connect(networkNode);
+        networkNode.connect(useCaseNode);
+
+        // --- 3. ฟังก์ชันควบคุมการทำงานเมื่อกดปุ่ม ---
+        function runQuantumSimulation() {
+            const logElement = document.getElementById('console-log');
+            const statusElement = document.getElementById('status-display');
+            
+            let logs = [];
+            const customLog = (msg) => {
+                logs.push(msg);
+            };
+
+            statusElement.innerText = "สถานะระบบ: กำลังสะท้อนสภาวะธรรมผ่าน Pointer... (Active)";
+            customLog("=== เริ่มต้นรันรอบการทำงานควอนตัม (Chang Bird Transport Protocol) ===");
+
+            // จำลองการยิง Event เข้าสู่ Root Engine ผ่าน Pointer
+            rootEngine.reflectEvent("กระทบผัสสะ โลกธรรม 8", customLog);
+
+            customLog("=== สิ้นสุดรอบการทำงาน: ระบบว่างเปล่าบริสุทธิ์ (Nirvana State) ===");
+
+            // แสดงผลลัพธ์ลงบนหน้าจอ HTML
+            logElement.innerHTML = logs.join('\n');
+        }
+    </script>
+</body>
+</html>
